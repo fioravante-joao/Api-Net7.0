@@ -24,13 +24,16 @@ A API suporta autenticação de usuários.
 
 # Documentação da api: 
 Para documentação usei o Swagger pela simplicidade e facilidade.
-![Imagem com breve documentação: ](https://drive.google.com/file/d/1cO_QH7ySYDKvTBoe73gdYQIdj9arGu75/view?usp=sharing)
+![API](https://github.com/fioravante-joao/Api-Net7.0/assets/39463582/0e2db34b-d5e3-444e-a929-ce9ed4ffb4cb)
 
 # Primeiros passos:
  * O projeto já vem pronto, basta clonar e em seguidar abrir em seu visual studio 2022
  * Ctrol + F5 para Executar o projeto, (se for solicitado certificado ssl, clique em instalar)
- * Você precisa usar o endPoint de (https://localhost:7235/v1/users/create) para criar seu usuário.
- * Em seguida pode usar o endPoint (https://localhost:7235/v1/users/login)
+ * Você precisa usar o endPoint de (https://localhost:7235/v1/users/create) para criar seu usuário, (Utilizei o Postman para fazer as requisições).
+   ![Create](https://github.com/fioravante-joao/Api-Net7.0/assets/39463582/ca861634-abd7-4caf-98c0-e5459cdbfc4d)
+
+ * Em seguida pode usar o endPoint (https://localhost:7235/v1/users/login), (Utilizei o Postman para fazer as requisições).
+   ![Login](https://github.com/fioravante-joao/Api-Net7.0/assets/39463582/80d03e4b-d7bf-4d2e-bf73-5cdfa3b846a8)
  * Agora já pode listar, cirar, editar e deletar suas tarefas.
 
 # Obs:

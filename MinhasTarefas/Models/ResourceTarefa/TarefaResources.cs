@@ -54,6 +54,25 @@ namespace MinhasTarefas.Models.ResourceTarefa
             }
         }
 
+        public async Task<List<Tarefa>> ListTarefaIdAsync(string status)
+        {
+            try
+            {
+                var tarefas = await _context
+                .Tarefas // DbSet<Tarefa>
+                .AsNoTracking()
+                .Where(x => x.Status == status)
+                .ToListAsync();
+
+
+                return tarefas;
+            }
+            catch (Exception)
+            {
+                return default;
+            }
+        }
+
         public async Task<Tarefa> AdicionarTarefaAsync(CreateTarefaViewModel tarefa, string idUser)
         {
             var tarefaObj = new Tarefa
@@ -61,7 +80,7 @@ namespace MinhasTarefas.Models.ResourceTarefa
                 Title = tarefa.Title,
                 Description = tarefa.Description,
                 Date = DateTime.ParseExact(DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture),
-                Status = tarefa.Status,
+                Status = tarefa.Status.ToLower(),
                 CreationUserId = int.Parse(idUser),
                 LastUpdateDate = DateTime.ParseExact(DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"), "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture)
 

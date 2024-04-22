@@ -1,0 +1,28 @@
+# Arquivos de compilação e pacotes
+bin/
+obj/
+*.user
+
+# Arquivos de configuração local
+appsettings.Development.json
+launchSettings.json
+
+
+# Diretórios do Visual Studio
+.vs/
+
+# Dependências e pacotes NuGet
+*.dll
+*.exe
+*.pdb
+*.dll
+*.exe
+*.zip
+/packages/
+
+# Arquivos de log
+*.log
+
+# Ignorar arquivos específicos .NET 7.0
+obj/Debug/net7.0/
+

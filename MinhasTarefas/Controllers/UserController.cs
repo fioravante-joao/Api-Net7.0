@@ -56,11 +56,12 @@ namespace MinhasTarefas.Controllers
                 var usuarioObj = new User
                 {
                     UserName = user.UserName,
-                    Password = user.Password,
-                    Role = ""
+                    Password = user.Password
                 };
                 await context.Users.AddAsync(usuarioObj);
                 await context.SaveChangesAsync();
+
+                usuarioObj.Password = "";
 
                 return Created(uri: $"v1/users/create{usuarioObj.Id}", usuarioObj);
             }
@@ -72,16 +73,23 @@ namespace MinhasTarefas.Controllers
 
         [HttpGet]
         [Route(template: "list")]
-        [AllowAnonymous]
+        [Authorize]
         public async Task<ActionResult> GetUsersAsync(
             [FromServices] AppDbContext context)
         {
             try
             {
                 var usuarios = await context
-                    .Users //Dbset<Tarefa>
+                    .Users
                     .AsNoTracking()
                     .ToListAsync();
+
+                // Atribui um valor vazio para a senha de cada usuário antes de retornar a resposta.
+                foreach (var usuario in usuarios)
+                {
+                    usuario.Password = ""; 
+                }
+
                 return Ok(usuarios);
             }
             catch (Exception)

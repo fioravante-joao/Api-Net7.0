@@ -39,6 +39,21 @@ namespace MinhasTarefas.Controllers
                 : Ok(tarefa);
         }
 
+        [HttpGet]
+        [Route(template: "tarefas/status/{status}")]
+        [Authorize]
+        public async Task<IActionResult> GetByStatusAsync(
+            [FromServices] AppDbContext context,
+            [FromServices] TarefaResources tarefaResources,
+            [FromRoute] string status)
+        {
+            var tarefas = await tarefaResources.ListTarefaIdAsync(status.ToLower());
+
+            return tarefas == null
+                ? NotFound()
+                : Ok(tarefas);
+        }
+
         [HttpPost(template: "tarefas")]
         [Authorize]
         public async Task<IActionResult> PostAsync(
@@ -53,11 +68,17 @@ namespace MinhasTarefas.Controllers
 
             try
             {
-                // Acessa o ID do usuário do contexto de solicitação HTTP
-                var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                if (tarefa.Status.ToLower() == "pendente" || tarefa.Status.ToLower() == "andamento" || tarefa.Status.ToLower() == "concluido")
+                {
+                    // Acessa o ID do usuário do contexto de solicitação HTTP
+                    var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
-                var tarefaObj = await tarefaResources.AdicionarTarefaAsync(tarefa, userId);
-                return Created(uri: $"v1/tarefas/{tarefaObj.Id}", tarefaObj);
+                    var tarefaObj = await tarefaResources.AdicionarTarefaAsync(tarefa, userId);
+                    return Created(uri: $"v1/tarefas/{tarefaObj.Id}", tarefaObj);
+                    
+                }
+
+                return BadRequest("O status da tarefa é inválido, certifique-se de usar um dos 3 permitidos: pendente, andamento ou concluido");
             }
             catch (Exception)
             {
