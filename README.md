@@ -24,3 +24,15 @@ A API suporta autenticação de usuários.
 
 # Documentação da api: 
 Para documentação usei o Swagger pela simplicidade e facilidade.
+![Imagem com breve documentação: ](https://drive.google.com/file/d/1cO_QH7ySYDKvTBoe73gdYQIdj9arGu75/view?usp=sharing)
+
+# Primeiros passos:
+ * O projeto já vem pronto, basta clonar e em seguidar abrir em seu visual studio 2022
+ * Ctrol + F5 para Executar o projeto, (se for solicitado certificado ssl, clique em instalar)
+ * Você precisa usar o endPoint de (https://localhost:7235/v1/users/create) para criar seu usuário.
+ * Em seguida pode usar o endPoint (https://localhost:7235/v1/users/login)
+ * Agora já pode listar, cirar, editar e deletar suas tarefas.
+
+# Obs:
+Não coloquei um arquivo .Ignore por motivos de simplicidade desse projeto e para facilitar o uso para qualquer dev.
+Também não escondi a chave Secret com o token por se tratar de um projeto que roda apenas localmente, mas se for utilizar esse ou utro projeto em produção altere e esconda o token do arquivo Secret.
