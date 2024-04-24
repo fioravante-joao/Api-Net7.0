@@ -10,6 +10,11 @@ launchSettings.json
 
 # Diretórios do Visual Studio
 .vs/
+.vsidx
+.suo
+*.vs/
+*.vsidx
+*.suo
 
 # Dependências e pacotes NuGet
 *.dll
