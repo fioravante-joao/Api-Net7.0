@@ -27,7 +27,9 @@ Para documentação usei o Swagger pela simplicidade e facilidade.
 ![API](https://github.com/fioravante-joao/Api-Net7.0/assets/39463582/0e2db34b-d5e3-444e-a929-ce9ed4ffb4cb)
 
 # Primeiros passos:
- * O projeto já vem pronto, basta clonar e em seguidar abrir em seu visual studio 2022
+ * O projeto já vem pronto, basta clonar e em seguida abrir em seu visual studio 2022
+ * Abra a classe settings.cs e coloque uma hash de segurança com 61 caracteres na variável "Secret"
+ * Ctrol + Shift + S para salvar a alteração e você está pronto para começar
  * Ctrol + F5 para Executar o projeto, (se for solicitado certificado ssl, clique em instalar)
  * Você precisa usar o endPoint de (https://localhost:7235/v1/users/create) para criar seu usuário, (Utilizei o Postman para fazer as requisições).
    ![Create](https://github.com/fioravante-joao/Api-Net7.0/assets/39463582/ca861634-abd7-4caf-98c0-e5459cdbfc4d)
