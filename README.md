@@ -36,8 +36,4 @@ Para documentação usei o Swagger pela simplicidade e facilidade.
 
  * Em seguida pode usar o endPoint (https://localhost:7235/v1/users/login), (Utilizei o Postman para fazer as requisições).
    ![Login](https://github.com/fioravante-joao/Api-Net7.0/assets/39463582/80d03e4b-d7bf-4d2e-bf73-5cdfa3b846a8)
- * Agora já pode listar, cirar, editar e deletar suas tarefas.
-
-# Obs:
-Não coloquei um arquivo .Ignore por motivos de simplicidade desse projeto e para facilitar o uso para qualquer dev.
-Também não escondi a chave Secret com o token por se tratar de um projeto que roda apenas localmente, mas se for utilizar esse ou utro projeto em produção altere e esconda o token do arquivo Secret.
+ * Agora já pode listar, cirar, editar e deletar suas tarefas. :)
